@@ -3,6 +3,7 @@ import { useState } from "react";
 import Home from "./components/Home";
 import Favorites from "./components/Favorites";
 import Layout from "./components/Layout";
+import RecipeDetails from "./components/RecipeDetails";
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
       if (!response.ok) throw Error('Error occured while fetching data')
       const data = await response.json();
       setFetchData(data);
-      
+
     } catch (err) {
       console.log(err.message);
     }
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout handleSubmit={handleSubmit} setInput={setInput} />}>
           <Route path="favorites" element={<Favorites />} />
+          <Route path="details/:recipeID" element={<RecipeDetails/>}/>
           <Route index element={<Home fetchData={fetchData} />} />
         </Route>
       </Routes>
