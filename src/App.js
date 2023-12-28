@@ -3,7 +3,7 @@ import { useState } from "react";
 import Home from "./components/Home";
 import Favorites from "./components/Favorites";
 import Layout from "./components/Layout";
-import RecipeDetails from "./components/RecipeDetails";
+import Details from "./components/Details";
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout handleSubmit={handleSubmit} setInput={setInput} />}>
           <Route path="favorites" element={<Favorites />} />
-          <Route path="details/:recipeID" element={<RecipeDetails/>}/>
+          <Route path="details/:recipeID" element={<Details/>}/>
           <Route index element={<Home fetchData={fetchData} />} />
         </Route>
       </Routes>
